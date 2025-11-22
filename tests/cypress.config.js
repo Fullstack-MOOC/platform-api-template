@@ -1,14 +1,11 @@
-/* eslint-disable import/extensions */
-/* eslint-disable global-require */
-const { defineConfig } = require('cypress');
+import { defineConfig } from 'cypress';
 
-module.exports = defineConfig({
-  video: false,
-  screenshotOnRunFailure: false,
+export default defineConfig({
   e2e: {
-    setupNodeEvents(on, config) {
-      return require('./cypress/plugins/index.js')(on, config);
-    },
     baseUrl: 'http://localhost:9090',
+    video: false,
+    supportFile: false,
+    screenshotOnRunFailure: false,
+    setupNodeEvents(on, config) {},
   },
 });
